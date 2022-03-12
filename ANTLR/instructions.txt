@@ -1,0 +1,4 @@
+cd ../antlrOutput
+antlr4 ../antlrInput/GDL.g4
+javac GDL*.java
+grun GDL program ../samples/test4.txt -gui
