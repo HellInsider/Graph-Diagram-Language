@@ -1,0 +1,15 @@
+Graph
+
+{ 
+
+title: myGraph;
+
+layout: circo;
+
+saveAs: png;
+
+ 
+
+v1(3) - v2(3)= 1 : [clr = Red, font = Arial, size = 38, place = Left]; 
+
+} 

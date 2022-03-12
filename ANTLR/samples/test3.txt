@@ -1,0 +1,42 @@
+Graph
+
+{ 
+
+title: mySecondGraph;
+
+layout: circo;
+
+saveAs: png;
+
+ 
+
+v1(3) - v2(3)= 1 : [clr = Red, font = Arial, size = 38, place = Left];
+v1(1) - v4(1)= 4; 
+
+v2(2) - v4(3)= 5; 
+
+v2(1) - v3(4)= 2; 
+
+
+
+v3(1) [clr = Red, font = Arial, size = 38] - v4(2) = 3; 
+
+ 
+
+v3 [clr = Red, font = Arial, size = 38]; 
+
+} 
+
+
+Graph
+{ 
+title: myGraph;
+layout: circo;
+saveAs: png;
+v1(3) - v2 = 1 : [clr = Red, font = Arial, size = 38, place = Left];
+v1(1) - v4(1)= 4; 
+v2(2) - v4(3)= 5; 
+v2(1) - v3(4)= 2; 
+v3 [clr = Red, font = Arial, size = 38];
+v3(1) [clr = Red, font = Arial, size = 38] - v4(2) = 3; 
+} 
