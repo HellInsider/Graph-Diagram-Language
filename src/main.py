@@ -3,6 +3,7 @@ from GDLVisitorImpl import GDLVisitorImpl
 from antlr4 import *
 from ANTLR.sources.GDLLexer import GDLLexer
 from ANTLR.sources.GDLParser import GDLParser
+from dto import Graph
 
 if __name__ == "__main__":
     data = FileStream('ANTLR/samples/test1.txt', encoding='utf-8')
