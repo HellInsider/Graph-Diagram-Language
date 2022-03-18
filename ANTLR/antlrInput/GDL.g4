@@ -1,12 +1,13 @@
-grammar GDL;		
+grammar GDL;
 
 program: graph+ EOF;
 
 graph: 'Graph' '{'
            graphtitle?
            layout?
+	       background?
            saveformat?
-           edges
+           content
         '}';
 
 
@@ -14,19 +15,29 @@ graph: 'Graph' '{'
 layout: 'layout:' ('dot' | 'neato' | 'twopi' | 'circo' | 'graphs' | 'fdp' | 'sfdp')  ';';
 saveformat: 'saveAs:' ('png' | 'jpg')  ';';
 graphtitle: 'title:' TEXT  ';';
+background: 'background:' clr ';';
 
 
-/*            Edges parameters          */
-edges: ( (vertex | vertex attitude vertex ( (':' optional)? ('=' value)? | ('=' value)? (':' optional)? ) ) ';')+ ;
-vertex: TEXT ('(' value ')')? optional?;                             //Vertex is a part of edge.
+/*            Edges part          */
+content: (edge | vertex)+;
+edge: vertex attitude vertex ( (':' edgeopt)? ('=' value)? | ('=' value)? (':' edgeopt)? ) ';';
+edgeopt: '[' edgeoptparams+ ']';
+edgeoptparams: (clr | placement | size | font) (',')?;
+
+
+
+/*            Vertex part               */
+vertex: TEXT ('(' value ')')? vertexopt? ';'?;                             //Vertex is a part of edge.
 value: TEXT | INTEGER;                                               //weight is text to make weight and name by one var.
 attitude: ('->' | '<-' | '-');
+vertexopt: '[' vertexoptparams+ ']';
+vertexoptparams: (clr | size | font) (',')?;
 
-optional: '[' param+ ']';
 
 
 /*          Optional parameters         */
-param: (clr | placement | size | font) (',')?;
+
+//param: (clr | placement | size | font) (',')?;
 clr: 'clr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' ) ;
 placement: 'place' '=' ('Left' | 'Right' | 'Up' | 'Down' | 'U-L' | 'U-R' | 'D-L' | 'D-R');
 size: 'size' '=' INTEGER;
