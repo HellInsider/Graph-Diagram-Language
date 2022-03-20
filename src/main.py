@@ -1,12 +1,12 @@
 import sys
 from GDLVisitorImpl import GDLVisitorImpl
 from antlr4 import *
-from ANTLR.sources.GDLLexer import GDLLexer
-from ANTLR.sources.GDLParser import GDLParser
+from GDLLexer import GDLLexer
+from GDLParser import GDLParser
 from dto import Graph
 
 if __name__ == "__main__":
-    data = FileStream('ANTLR/samples/test1.txt', encoding='utf-8')
+    data = FileStream('D:\Workspace\ANTLR\GraphDiagramLanguage\samples\\test3.txt', encoding='utf-8')
     # lexer
     lexer = GDLLexer(data)
     stream = CommonTokenStream(lexer)
@@ -15,5 +15,5 @@ if __name__ == "__main__":
     tree = parser.program()
     # # evaluator
     visitor = GDLVisitorImpl()
-    output = visitor.visit(tree)
-    print(output)
+    graphs = visitor.visit(tree)        #here graphs
+    print(graphs)

@@ -1,19 +1,16 @@
 from typing import List, NamedTuple
 
-
-class Options(NamedTuple):
+class EdgeOptions(NamedTuple):
+    text_place: str
     color: str
     font: str
     font_size: int
 
-
-class EdgeOptions(Options):
-    text_place: str
-
-
-class VertexOptions(Options):
-    text_place: str
-
+class VertexOptions(NamedTuple):
+    #text_place: str
+    color: str
+    font: str
+    font_size: int
 
 class Vertex(NamedTuple):
     cost: int = None
