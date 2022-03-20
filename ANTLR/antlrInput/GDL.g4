@@ -3,22 +3,19 @@ grammar GDL;
 program: graph+ EOF;
 
 graph: 'Graph' '{'
-           graphtitle?
-           layout?
-	       background?
-           saveformat?
+           (graphtitle | layout | background | saveformat)*
            content
         '}';
 
 
 /*        Graph general parameters      */
-layout: 'layout:' ('dot' | 'neato' | 'twopi' | 'circo' | 'graphs' | 'fdp' | 'sfdp')  ';';
-saveformat: 'saveAs:' ('png' | 'jpg')  ';';
-graphtitle: 'title:' TEXT  ';';
-background: 'background:' clr ';';
+layout: 'layout' ':' ('dot' | 'neato' | 'twopi' | 'circo' | 'graphs' | 'fdp' | 'sfdp')  ';';
+saveformat: 'saveAs' ':' ('png' | 'jpg')  ';';
+graphtitle: 'title' ':' TEXT  ';';
+background: 'background' ':' clr ';';
 
 
-/*            Edges part          */
+/*            Content part    	        */
 content: (edge | vertex)+;
 edge: vertex attitude vertex ( (':' edgeopt)? ('=' value)? | ('=' value)? (':' edgeopt)? ) ';';
 edgeopt: '[' edgeoptparams+ ']';
