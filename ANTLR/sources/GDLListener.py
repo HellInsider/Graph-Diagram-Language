@@ -1,4 +1,4 @@
-# Generated from GDL.g4 by ANTLR 4.7.2
+# Generated from ../antlrInput/GDL.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .GDLParser import GDLParser
@@ -53,12 +53,21 @@ class GDLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GDLParser#edges.
-    def enterEdges(self, ctx:GDLParser.EdgesContext):
+    # Enter a parse tree produced by GDLParser#background.
+    def enterBackground(self, ctx:GDLParser.BackgroundContext):
         pass
 
-    # Exit a parse tree produced by GDLParser#edges.
-    def exitEdges(self, ctx:GDLParser.EdgesContext):
+    # Exit a parse tree produced by GDLParser#background.
+    def exitBackground(self, ctx:GDLParser.BackgroundContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#content.
+    def enterContent(self, ctx:GDLParser.ContentContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#content.
+    def exitContent(self, ctx:GDLParser.ContentContext):
         pass
 
 
@@ -170,3 +179,5 @@ class GDLListener(ParseTreeListener):
         pass
 
 
+
+del GDLParser

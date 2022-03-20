@@ -1,4 +1,4 @@
-# Generated from GDL.g4 by ANTLR 4.7.2
+# Generated from ../antlrInput/GDL.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .GDLParser import GDLParser
@@ -34,8 +34,13 @@ class GDLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GDLParser#edges.
-    def visitEdges(self, ctx:GDLParser.EdgesContext):
+    # Visit a parse tree produced by GDLParser#background.
+    def visitBackground(self, ctx:GDLParser.BackgroundContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GDLParser#content.
+    def visitContent(self, ctx:GDLParser.ContentContext):
         return self.visitChildren(ctx)
 
 
