@@ -1,4 +1,4 @@
-// Generated from GDL.g4 by ANTLR 4.9.2
+// Generated from ../antlrInput/GDL.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -57,15 +57,55 @@ public interface GDLListener extends ParseTreeListener {
 	 */
 	void exitGraphtitle(GDLParser.GraphtitleContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GDLParser#edges}.
+	 * Enter a parse tree produced by {@link GDLParser#background}.
 	 * @param ctx the parse tree
 	 */
-	void enterEdges(GDLParser.EdgesContext ctx);
+	void enterBackground(GDLParser.BackgroundContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GDLParser#edges}.
+	 * Exit a parse tree produced by {@link GDLParser#background}.
 	 * @param ctx the parse tree
 	 */
-	void exitEdges(GDLParser.EdgesContext ctx);
+	void exitBackground(GDLParser.BackgroundContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#content}.
+	 * @param ctx the parse tree
+	 */
+	void enterContent(GDLParser.ContentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#content}.
+	 * @param ctx the parse tree
+	 */
+	void exitContent(GDLParser.ContentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#edge}.
+	 * @param ctx the parse tree
+	 */
+	void enterEdge(GDLParser.EdgeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#edge}.
+	 * @param ctx the parse tree
+	 */
+	void exitEdge(GDLParser.EdgeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#edgeopt}.
+	 * @param ctx the parse tree
+	 */
+	void enterEdgeopt(GDLParser.EdgeoptContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#edgeopt}.
+	 * @param ctx the parse tree
+	 */
+	void exitEdgeopt(GDLParser.EdgeoptContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#edgeoptparams}.
+	 * @param ctx the parse tree
+	 */
+	void enterEdgeoptparams(GDLParser.EdgeoptparamsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#edgeoptparams}.
+	 * @param ctx the parse tree
+	 */
+	void exitEdgeoptparams(GDLParser.EdgeoptparamsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GDLParser#vertex}.
 	 * @param ctx the parse tree
@@ -97,25 +137,25 @@ public interface GDLListener extends ParseTreeListener {
 	 */
 	void exitAttitude(GDLParser.AttitudeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GDLParser#optional}.
+	 * Enter a parse tree produced by {@link GDLParser#vertexopt}.
 	 * @param ctx the parse tree
 	 */
-	void enterOptional(GDLParser.OptionalContext ctx);
+	void enterVertexopt(GDLParser.VertexoptContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GDLParser#optional}.
+	 * Exit a parse tree produced by {@link GDLParser#vertexopt}.
 	 * @param ctx the parse tree
 	 */
-	void exitOptional(GDLParser.OptionalContext ctx);
+	void exitVertexopt(GDLParser.VertexoptContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GDLParser#param}.
+	 * Enter a parse tree produced by {@link GDLParser#vertexoptparams}.
 	 * @param ctx the parse tree
 	 */
-	void enterParam(GDLParser.ParamContext ctx);
+	void enterVertexoptparams(GDLParser.VertexoptparamsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GDLParser#param}.
+	 * Exit a parse tree produced by {@link GDLParser#vertexoptparams}.
 	 * @param ctx the parse tree
 	 */
-	void exitParam(GDLParser.ParamContext ctx);
+	void exitVertexoptparams(GDLParser.VertexoptparamsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GDLParser#clr}.
 	 * @param ctx the parse tree

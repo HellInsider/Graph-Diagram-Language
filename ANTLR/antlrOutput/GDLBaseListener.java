@@ -1,4 +1,4 @@
-// Generated from GDL.g4 by ANTLR 4.9.2
+// Generated from ../antlrInput/GDL.g4 by ANTLR 4.9.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -75,13 +75,61 @@ public class GDLBaseListener implements GDLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEdges(GDLParser.EdgesContext ctx) { }
+	@Override public void enterBackground(GDLParser.BackgroundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEdges(GDLParser.EdgesContext ctx) { }
+	@Override public void exitBackground(GDLParser.BackgroundContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterContent(GDLParser.ContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitContent(GDLParser.ContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEdge(GDLParser.EdgeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEdge(GDLParser.EdgeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEdgeopt(GDLParser.EdgeoptContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEdgeopt(GDLParser.EdgeoptContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEdgeoptparams(GDLParser.EdgeoptparamsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEdgeoptparams(GDLParser.EdgeoptparamsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -123,25 +171,25 @@ public class GDLBaseListener implements GDLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOptional(GDLParser.OptionalContext ctx) { }
+	@Override public void enterVertexopt(GDLParser.VertexoptContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOptional(GDLParser.OptionalContext ctx) { }
+	@Override public void exitVertexopt(GDLParser.VertexoptContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParam(GDLParser.ParamContext ctx) { }
+	@Override public void enterVertexoptparams(GDLParser.VertexoptparamsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParam(GDLParser.ParamContext ctx) { }
+	@Override public void exitVertexoptparams(GDLParser.VertexoptparamsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
