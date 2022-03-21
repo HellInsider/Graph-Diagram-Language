@@ -6,6 +6,11 @@ import dto
 
 
 class GDLVisitorImpl(GDLVisitor):
+
+    def __init__(self):
+        self.isOriented = False
+
+
     def visitProgram(self, ctx: GDLParser.ProgramContext):
         print("Program")
         graphs = []
@@ -35,7 +40,7 @@ class GDLVisitorImpl(GDLVisitor):
         for t in ctx.saveformat():
             saveformat = self.visit(t)
 
-        graph = dto.Graph(edges, vertices, layout, background, graph_title, saveformat)
+        graph = dto.Graph(edges, vertices, layout, background, graph_title, saveformat, self.isOriented)
         return graph
 
     # Visit a parse tree produced by GDLParser#layout.
@@ -63,13 +68,6 @@ class GDLVisitorImpl(GDLVisitor):
         edges = list()
         vertices = list()
 
-        '''print(ctx.getChildCount())
-        for c in ctx.getChildCount():
-            if type(ctx.getChild(i)) == GDLParser.EdgeContext:
-                edges.append(self.visit(ctx.getChild(i)))
-            else:
-                vertices.append(self.visit(ctx.getChild(i)))'''
-
         for c in ctx.edge():
             edges.append(self.visit(c))
 
@@ -82,23 +80,11 @@ class GDLVisitorImpl(GDLVisitor):
     def visitEdge(self, ctx: GDLParser.EdgeContext):
         print('Edge')
 
-        cost = None
-        name = None
-
-        if (ctx.value() is not None):
-            cost = self.visit(ctx.value())
-
-            if cost.isnumeric():
-                cost = int(cost)
-            else:
-                name = cost
-                cost = None
-
         edgeOptions = None
         if ctx.edgeopt() != None:
             edgeOptions = self.visit(ctx.edgeopt())
 
-        return dto.Edge(self.visit(ctx.vertex(0)), self.visit(ctx.vertex(1)), name, cost, edgeOptions)
+        return dto.Edge(self.visit(ctx.vertex(0)), self.visit(ctx.vertex(1)), self.visit(ctx.value()), edgeOptions)
 
     # Visit a parse tree produced by GDLParser#edgeopt.
     def visitEdgeopt(self, ctx: GDLParser.EdgeoptContext):
@@ -136,23 +122,18 @@ class GDLVisitorImpl(GDLVisitor):
     def visitVertex(self, ctx: GDLParser.VertexContext):
         print('Vertex')
 
-        cost = None
-        name = None
-
-        if (ctx.value() is not None):
-            cost = self.visit(ctx.value())
-
-            if cost.isnumeric():
-                cost = int(cost)
-            else:
-                name = cost
-                cost = None
-
         vertexOptions = None
+        value = None
+        _id = ctx.getChild(0).getText()
+        print(_id)
+
+        if ctx.value() is not None:
+            value = self.visit(ctx.value())
+
         if ctx.vertexopt() is not None:
             vertexOptions = self.visit(ctx.vertexopt())
 
-        return dto.Vertex(cost, name, vertexOptions)
+        return dto.Vertex(_id, value, vertexOptions)
 
     # Visit a parse tree produced by GDLParser#value.
     def visitValue(self, ctx: GDLParser.ValueContext):
@@ -162,6 +143,9 @@ class GDLVisitorImpl(GDLVisitor):
     # Visit a parse tree produced by GDLParser#attitude.
     def visitAttitude(self, ctx: GDLParser.AttitudeContext):
         print("Attitude")
+        if ctx.getText() == '->':
+            isOriented = True
+
         return ctx.getText()
 
     # Visit a parse tree produced by GDLParser#vertexopt.
