@@ -1,7 +1,7 @@
 from collections import namedtuple
 
-from GDLParser import GDLParser
-from GDLVisitor import GDLVisitor
+from ANTLR.sources.GDLParser import GDLParser
+from ANTLR.sources.GDLVisitor import GDLVisitor
 import dto
 
 
