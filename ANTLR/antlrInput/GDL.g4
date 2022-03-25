@@ -24,8 +24,8 @@ edgeoptparams: (clr | placement | size | font) (',')?;
 
 
 /*            Vertex part               */
-vertex: TEXT ('(' value ')')? vertexopt? ';'?;                             //Vertex is a part of edge.
-value: TEXT | INTEGER;                                               //weight is text to make weight and name by one var.
+vertex: TEXT ('(' value ')')? vertexopt? ';'?;                             
+value: TEXT | INTEGER;                                               
 attitude: ('->' | '<-' | '-');
 vertexopt: '[' vertexoptparams+ ']';
 vertexoptparams: (clr | size | font) (',')?;
@@ -35,7 +35,7 @@ vertexoptparams: (clr | size | font) (',')?;
 /*          Optional parameters         */
 
 //param: (clr | placement | size | font) (',')?;
-clr: 'clr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' ) ;
+clr: 'clr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' ) ;
 placement: 'place' '=' ('Left' | 'Right' | 'Up' | 'Down' | 'U-L' | 'U-R' | 'D-L' | 'D-R');
 size: 'size' '=' INTEGER;
 font: 'font' '=' TEXT;
