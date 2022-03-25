@@ -13,16 +13,15 @@ class VertexOptions(NamedTuple):
     font_size: int
 
 class Vertex(NamedTuple):
-    cost: int = None
-    name: str = None
+    id: str = None
+    label: str = None
     vertex_options: VertexOptions = None
 
 
 class Edge(NamedTuple):
     first_vertex: Vertex
     second_vertex: Vertex
-    name: str = None
-    cost: int = None
+    label: str = None
     edge_options: EdgeOptions = None
 
 
@@ -33,5 +32,6 @@ class Graph(NamedTuple):
     background: str = "white"
     graph_title: str = "title"
     save_format: str = "jpg"
+    is_oriented: bool = False
 
 
