@@ -152,6 +152,33 @@ class GDLListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GDLParser#vertexclr.
+    def enterVertexclr(self, ctx:GDLParser.VertexclrContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#vertexclr.
+    def exitVertexclr(self, ctx:GDLParser.VertexclrContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#edgeclr.
+    def enterEdgeclr(self, ctx:GDLParser.EdgeclrContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#edgeclr.
+    def exitEdgeclr(self, ctx:GDLParser.EdgeclrContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#fontclr.
+    def enterFontclr(self, ctx:GDLParser.FontclrContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#fontclr.
+    def exitFontclr(self, ctx:GDLParser.FontclrContext):
+        pass
+
+
     # Enter a parse tree produced by GDLParser#placement.
     def enterPlacement(self, ctx:GDLParser.PlacementContext):
         pass
@@ -161,12 +188,30 @@ class GDLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GDLParser#size.
-    def enterSize(self, ctx:GDLParser.SizeContext):
+    # Enter a parse tree produced by GDLParser#edgethickness.
+    def enterEdgethickness(self, ctx:GDLParser.EdgethicknessContext):
         pass
 
-    # Exit a parse tree produced by GDLParser#size.
-    def exitSize(self, ctx:GDLParser.SizeContext):
+    # Exit a parse tree produced by GDLParser#edgethickness.
+    def exitEdgethickness(self, ctx:GDLParser.EdgethicknessContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#fontsize.
+    def enterFontsize(self, ctx:GDLParser.FontsizeContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#fontsize.
+    def exitFontsize(self, ctx:GDLParser.FontsizeContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#vertexsize.
+    def enterVertexsize(self, ctx:GDLParser.VertexsizeContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#vertexsize.
+    def exitVertexsize(self, ctx:GDLParser.VertexsizeContext):
         pass
 
 
