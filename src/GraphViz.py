@@ -32,14 +32,11 @@ class GraphViz:
                        color=edge.edge_options.color)
 
         edges, colors = zip(*nx.get_edge_attributes(G, 'color').items())
-        # pos = nx.multipartite_layout(G)
+        pos = graphviz_layout(
+            G,
+            prog=self.layout
+        )
         # pos = nx.spring_layout(G)
-        print(self.layout)
-        # pos = graphviz_layout(
-        #     G,
-        #     prog=self.layout
-        # )
-        pos = nx.spring_layout(G)
 
         fig, ax = plt.subplots()
         nx.draw(G, edgelist=edges, pos=pos, labels=label_dict, edge_color=colors, with_labels=True,
@@ -47,7 +44,6 @@ class GraphViz:
 
         labels = nx.get_edge_attributes(G, 'weight')
         nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
-        self.background = "White"
         ax.set_facecolor(self.background)
         ax.axis('off')
         fig.set_facecolor(self.background)

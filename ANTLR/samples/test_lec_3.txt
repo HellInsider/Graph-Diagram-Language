@@ -2,6 +2,7 @@ Graph{
 title: third_test;
 layout: fdp;
 saveAs: jpg;
+background: Yellow;
 v1(1) - v2(2)= 1 : [clr = Red];
 v1(1) - v3(3)= 4 : [clr = Red];
 v1(1) - v4(4)= 4: [clr = Red];
