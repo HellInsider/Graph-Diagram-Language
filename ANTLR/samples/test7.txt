@@ -1,0 +1,21 @@
+Graph{ 
+title: mySecondGraph;
+layout: dot;
+saveAs: png;
+v1(1) - v2(2)= 1 : [clr = Red, font = Arial, size = 38, place = Left];
+v1(1) - v3(3)= 4 : [clr = Red, font = Arial, size = 38, place = Left];
+v3(3) - v4(4)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v4(4) - v8(8)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v4(4) - v9(9)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v3(3) - v7(7)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v7(7) - v10(10)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v7(7) - v11(11)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v2(2) - v5(5)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v5(5) - v12(12)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v5(5) - v13(13)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v2(2) - v6(6)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v6(6) - v14(14)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+v6(6) - v14(14)= 4: [clr = Red, font = Arial, size = 38, place = Left];
+}
+
+// balanced tree

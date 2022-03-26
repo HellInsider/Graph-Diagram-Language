@@ -12,5 +12,6 @@ background: Black;
 
  
 
-v1(v1) - v2(v2)= 1 : [clr = Green, font = Arial, size = 38, place = Left];
+v1( ) - v2( )= 1 : [clr = Red, font = Arial, size = 38, place = Left];
+
 } 

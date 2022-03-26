@@ -143,8 +143,8 @@ class GDLVisitorImpl(GDLVisitor):
     # Visit a parse tree produced by GDLParser#attitude.
     def visitAttitude(self, ctx: GDLParser.AttitudeContext):
         print("Attitude")
-        if ctx.getText() == '->':
-            isOriented = True
+        if ctx.getText() == "->":
+            self.isOriented = True
 
         return ctx.getText()
 

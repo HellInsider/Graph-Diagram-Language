@@ -17,7 +17,11 @@ class GraphViz:
         self.graph = graph
 
     def draw_in_file(self):
-        G = nx.Graph()
+        if self.graph.is_oriented:
+            G = nx.DiGraph()
+        else:
+            G = nx.Graph()
+
         label_dict = {}
 
         for edge in self.edges:
@@ -25,23 +29,26 @@ class GraphViz:
             label_dict[edge.second_vertex.id] = edge.second_vertex.label
 
             G.add_edge(edge.first_vertex.id, edge.second_vertex.id, weight=edge.label,
-                                   color=edge.edge_options.color)
-
+                       color=edge.edge_options.color)
 
         edges, colors = zip(*nx.get_edge_attributes(G, 'color').items())
         # pos = nx.multipartite_layout(G)
-        pos = graphviz_layout(
-            G,
-            prog='dot',
-            args='-Grankdir=LR'
-        )
+        # pos = nx.spring_layout(G)
+        print(self.layout)
+        # pos = graphviz_layout(
+        #     G,
+        #     prog=self.layout
+        # )
+        pos = nx.spring_layout(G)
 
         fig, ax = plt.subplots()
-        nx.draw(G, edgelist=edges, pos=pos, labels=label_dict, edge_color=colors, with_labels=True)
+        nx.draw(G, edgelist=edges, pos=pos, labels=label_dict, edge_color=colors, with_labels=True,
+                arrowsize=20, node_size=500, arrows=self.graph.is_oriented)
+
+        labels = nx.get_edge_attributes(G, 'weight')
+        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+        self.background = "White"
         ax.set_facecolor(self.background)
         ax.axis('off')
         fig.set_facecolor(self.background)
-        plt.show()
-
-
-
+        plt.savefig(self.title + "." + self.save_format)

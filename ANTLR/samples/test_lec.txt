@@ -1,0 +1,19 @@
+Graph{ 
+title: FirstTest;
+layout: fdp;
+saveAs: png;
+v1(1) - v2(2)= 1 : [clr = Green];
+v1(1) - v3(3)= 4 : [clr = Green];
+v1(1) - v4(4)= 4 : [clr = Green];
+v2(2) - v3(3)= 4 : [clr = Green];
+v2(2) - v4(4)= 4 : [clr = Green];
+v3(3) - v4(4)= 4 : [clr = Green];
+v4(4) - v5(5)= 4 : [clr = Red];
+v4(4) - v7(7)= 4 : [clr = Red];
+v5(5) - v7(7)= 4 : [clr = Green];
+v5(5) - v9(9)= 4 : [clr = Green];
+v5(5) - v8(8)= 4 : [clr = Green];
+v9(9) - v7(7)= 4 : [clr = Green];
+v9(9) - v8(8)= 4 : [clr = Green];
+v7(7) - v8(8)= 4 : [clr = Green];
+} 
