@@ -167,6 +167,36 @@ public interface GDLListener extends ParseTreeListener {
 	 */
 	void exitClr(GDLParser.ClrContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link GDLParser#vertexclr}.
+	 * @param ctx the parse tree
+	 */
+	void enterVertexclr(GDLParser.VertexclrContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#vertexclr}.
+	 * @param ctx the parse tree
+	 */
+	void exitVertexclr(GDLParser.VertexclrContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#edgeclr}.
+	 * @param ctx the parse tree
+	 */
+	void enterEdgeclr(GDLParser.EdgeclrContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#edgeclr}.
+	 * @param ctx the parse tree
+	 */
+	void exitEdgeclr(GDLParser.EdgeclrContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#fontclr}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontclr(GDLParser.FontclrContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#fontclr}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontclr(GDLParser.FontclrContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link GDLParser#placement}.
 	 * @param ctx the parse tree
 	 */
@@ -177,15 +207,35 @@ public interface GDLListener extends ParseTreeListener {
 	 */
 	void exitPlacement(GDLParser.PlacementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GDLParser#size}.
+	 * Enter a parse tree produced by {@link GDLParser#edgethickness}.
 	 * @param ctx the parse tree
 	 */
-	void enterSize(GDLParser.SizeContext ctx);
+	void enterEdgethickness(GDLParser.EdgethicknessContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GDLParser#size}.
+	 * Exit a parse tree produced by {@link GDLParser#edgethickness}.
 	 * @param ctx the parse tree
 	 */
-	void exitSize(GDLParser.SizeContext ctx);
+	void exitEdgethickness(GDLParser.EdgethicknessContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#fontsize}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontsize(GDLParser.FontsizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#fontsize}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontsize(GDLParser.FontsizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GDLParser#vertexsize}.
+	 * @param ctx the parse tree
+	 */
+	void enterVertexsize(GDLParser.VertexsizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GDLParser#vertexsize}.
+	 * @param ctx the parse tree
+	 */
+	void exitVertexsize(GDLParser.VertexsizeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GDLParser#font}.
 	 * @param ctx the parse tree
