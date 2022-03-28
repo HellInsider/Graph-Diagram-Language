@@ -1,7 +1,7 @@
 from collections import namedtuple
 
-from GDLParser import GDLParser
-from GDLVisitor import GDLVisitor
+from ANTLR.sources.GDLParser import GDLParser
+from ANTLR.sources.GDLVisitor import GDLVisitor
 import dto
 
 
@@ -82,12 +82,14 @@ class GDLVisitorImpl(GDLVisitor):
         print('Edge')
 
         edgeOptions = None
-        label = " "
+        label = ""
 
         self.visit(ctx.attitude())
 
         if ctx.edgeopt() is not None:
             edgeOptions = self.visit(ctx.edgeopt())
+        else:
+            edgeOptions = dto.EdgeOptions()
 
         if ctx.value() is not None:
             label = self.visit(ctx.value())
@@ -98,7 +100,13 @@ class GDLVisitorImpl(GDLVisitor):
     def visitEdgeopt(self, ctx: GDLParser.EdgeoptContext):
         print('Edgeopt')
 
-        font_color = edge_color = edge_thickness = font_size = font = text_place = None
+        default_edge_options = dto.EdgeOptions()
+        font_color = default_edge_options.font_color
+        edge_color = default_edge_options.edge_color
+        edge_thickness = default_edge_options.edge_thickness
+        font_size = default_edge_options.font_size
+        font = default_edge_options.font
+        text_place = default_edge_options.text_place
 
         for i in range(ctx.getChildCount() - 2):
             child = ctx.edgeoptparams(i).getChild(0)
@@ -134,8 +142,7 @@ class GDLVisitorImpl(GDLVisitor):
     def visitVertex(self, ctx: GDLParser.VertexContext):
         print('Vertex')
 
-        vertexOptions = None
-        label = None
+        label = " "
         _id = ctx.getChild(0).getText()
         print(_id)
 
@@ -144,6 +151,8 @@ class GDLVisitorImpl(GDLVisitor):
 
         if ctx.vertexopt() is not None:
             vertexOptions = self.visit(ctx.vertexopt())
+        else:
+            vertexOptions = dto.VertexOptions()
 
         return dto.Vertex(_id, label, vertexOptions)
 
@@ -165,7 +174,12 @@ class GDLVisitorImpl(GDLVisitor):
     def visitVertexopt(self, ctx: GDLParser.VertexoptContext):
         print("Vertexopt")
 
-        font_color = font_size = font = vertex_color = vertex_size = None
+        default_vertex_options = dto.VertexOptions()
+        font_color = default_vertex_options.font_color
+        font_size = default_vertex_options.font_size
+        font = default_vertex_options.font
+        vertex_color = default_vertex_options.vertex_color
+        vertex_size = default_vertex_options.vertex_size
 
         print(ctx.getChildCount())
         for i in range(ctx.getChildCount() - 2):
@@ -217,6 +231,10 @@ class GDLVisitorImpl(GDLVisitor):
 
     def visitFontsize(self, ctx: GDLParser.FontsizeContext):
         print("FontSize")
+        return ctx.getChild(2).getText()
+
+    def visitVertexclr(selfself, ctx: GDLParser.VertexclrContext):
+        print("Vertex color")
         return ctx.getChild(2).getText()
 
     def visitVertexsize(self, ctx:GDLParser.VertexsizeContext):

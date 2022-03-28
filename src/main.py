@@ -7,7 +7,7 @@ from ANTLR.sources.GDLParser import GDLParser
 from GraphViz import GraphViz
 
 if __name__ == "__main__":
-    data = FileStream('/Users/Danil_Ovechkin/PycharmProjects/Graph-Diagram-Language/ANTLR/samples/test_lec_3.txt', encoding='utf-8')
+    data = FileStream('/Users/Danil_Ovechkin/PycharmProjects/Graph-Diagram-Language/ANTLR/samples/test8.txt', encoding='utf-8')
     # lexer
     lexer = GDLLexer(data)
     stream = CommonTokenStream(lexer)
@@ -18,8 +18,9 @@ if __name__ == "__main__":
     visitor = GDLVisitorImpl()
     graphs = visitor.visit(tree)        #here graphs
 
-    gr = GraphViz(graphs[0])
-    gr.draw_in_file()
+    for graph in graphs:
+        gr = GraphViz(graph)
+        gr.draw_in_file()
 
 
 
