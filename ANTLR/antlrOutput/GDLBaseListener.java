@@ -207,6 +207,42 @@ public class GDLBaseListener implements GDLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVertexclr(GDLParser.VertexclrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVertexclr(GDLParser.VertexclrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEdgeclr(GDLParser.EdgeclrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEdgeclr(GDLParser.EdgeclrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFontclr(GDLParser.FontclrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFontclr(GDLParser.FontclrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPlacement(GDLParser.PlacementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -219,13 +255,37 @@ public class GDLBaseListener implements GDLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSize(GDLParser.SizeContext ctx) { }
+	@Override public void enterEdgethickness(GDLParser.EdgethicknessContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSize(GDLParser.SizeContext ctx) { }
+	@Override public void exitEdgethickness(GDLParser.EdgethicknessContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFontsize(GDLParser.FontsizeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFontsize(GDLParser.FontsizeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVertexsize(GDLParser.VertexsizeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVertexsize(GDLParser.VertexsizeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
