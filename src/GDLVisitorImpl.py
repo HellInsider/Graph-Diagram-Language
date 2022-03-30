@@ -1,7 +1,7 @@
 from collections import namedtuple
 
-from ANTLR.sources.GDLParser import GDLParser
-from ANTLR.sources.GDLVisitor import GDLVisitor
+from GDLParser import GDLParser
+from GDLVisitor import GDLVisitor
 import dto
 
 
@@ -23,11 +23,19 @@ class GDLVisitorImpl(GDLVisitor):
     def visitGraph(self, ctx: GDLParser.GraphContext):
         print("Graph")
 
-        isOriented = False
+        default_graph_options = dto.Graph()
+
         edges = vertices = None
+        isOriented = default_graph_options.is_oriented
         edges, vertices = self.visit(ctx.content())
 
-        layout = background = graph_title = saveformat = None
+        layout = default_graph_options.layout
+        background = default_graph_options.background
+        graph_title = default_graph_options.graph_title
+        saveformat = default_graph_options.save_format
+        font = default_graph_options.font
+        font_color = default_graph_options.font_color
+        font_size = default_graph_options.font_size
 
         for t in ctx.layout():
             layout = self.visit(t)
@@ -41,7 +49,17 @@ class GDLVisitorImpl(GDLVisitor):
         for t in ctx.saveformat():
             saveformat = self.visit(t)
 
-        graph = dto.Graph(edges, vertices, layout, background, graph_title, saveformat, self.isOriented)
+        for t in ctx.font():
+            font = self.visit(t)
+
+        for t in ctx.fontclr():
+            font_color = self.visit(t)
+
+        for t in ctx.fontsize():
+            font_size = self.visit(t)
+
+        graph = dto.Graph(edges, vertices, self.isOriented, layout, graph_title, saveformat,
+                          background, font, font_color, font_size)
         return graph
 
     # Visit a parse tree produced by GDLParser#layout.
@@ -101,23 +119,14 @@ class GDLVisitorImpl(GDLVisitor):
         print('Edgeopt')
 
         default_edge_options = dto.EdgeOptions()
-        font_color = default_edge_options.font_color
         edge_color = default_edge_options.edge_color
         edge_thickness = default_edge_options.edge_thickness
-        font_size = default_edge_options.font_size
-        font = default_edge_options.font
         text_place = default_edge_options.text_place
 
         for i in range(ctx.getChildCount() - 2):
             child = ctx.edgeoptparams(i).getChild(0)
 
-            if type(child) == GDLParser.FontclrContext:
-                font_color = self.visit(child)
-            elif type(child) == GDLParser.FontsizeContext:
-                font_size = int(self.visit(child))
-            elif type(child) == GDLParser.FontContext:
-                font = self.visit(child)
-            elif type(child) == GDLParser.EdgeclrContext:
+            if type(child) == GDLParser.EdgeclrContext:
                 edge_color = self.visit(child)
             elif type(child) == GDLParser.EdgethicknessContext:
                 edge_thickness = int(self.visit(child))
@@ -126,7 +135,7 @@ class GDLVisitorImpl(GDLVisitor):
             else:
                 print('Err')
 
-        return dto.EdgeOptions(text_place, font_color, font_size, font, edge_color, edge_thickness)
+        return dto.EdgeOptions(text_place, edge_color, edge_thickness)
 
     # Visit a parse tree produced by GDLParser#edgeoptparams.
     def visitEdgeoptparams(self, ctx: GDLParser.EdgeoptparamsContext):
@@ -175,9 +184,6 @@ class GDLVisitorImpl(GDLVisitor):
         print("Vertexopt")
 
         default_vertex_options = dto.VertexOptions()
-        font_color = default_vertex_options.font_color
-        font_size = default_vertex_options.font_size
-        font = default_vertex_options.font
         vertex_color = default_vertex_options.vertex_color
         vertex_size = default_vertex_options.vertex_size
 
@@ -185,20 +191,14 @@ class GDLVisitorImpl(GDLVisitor):
         for i in range(ctx.getChildCount() - 2):
             child = ctx.vertexoptparams(i).getChild(0)
 
-            if type(child) == GDLParser.FontclrContext:
-                font_color = self.visit(child)
-            elif type(child) == GDLParser.FontsizeContext:
-                font_size = int(self.visit(child))
-            elif type(child) == GDLParser.FontContext:
-                font = self.visit(child)
-            elif type(child) == GDLParser.VertexclrContext:
+            if type(child) == GDLParser.VertexclrContext:
                 vertex_color = self.visit(child)
             elif type(child) == GDLParser.VertexsizeContext:
                 vertex_size = int(self.visit(child))
             else:
                 print('Err')
 
-        return dto.VertexOptions(font_color, font_size, font, vertex_size, vertex_color)
+        return dto.VertexOptions(vertex_size, vertex_color)
 
     # Visit a parse tree produced by GDLParser#vertexoptparams.
     def visitVertexoptparams(self, ctx: GDLParser.VertexoptparamsContext):
@@ -208,7 +208,7 @@ class GDLVisitorImpl(GDLVisitor):
     # Visit a parse tree produced by GDLParser#clr.
     def visitClr(self, ctx: GDLParser.ClrContext):
         print("Clr")
-        return ctx.getChild(2).getText()
+        return ctx.getChild(0).getText()
 
     def visitEdgethickness(self, ctx:GDLParser.EdgethicknessContext):
         print("EdgeThick")
