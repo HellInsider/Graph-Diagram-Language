@@ -39,6 +39,21 @@ class GDLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by GDLParser#fontclr.
+    def visitFontclr(self, ctx:GDLParser.FontclrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GDLParser#font.
+    def visitFont(self, ctx:GDLParser.FontContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GDLParser#fontsize.
+    def visitFontsize(self, ctx:GDLParser.FontsizeContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by GDLParser#content.
     def visitContent(self, ctx:GDLParser.ContentContext):
         return self.visitChildren(ctx)
@@ -89,23 +104,13 @@ class GDLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by GDLParser#vertexsize.
+    def visitVertexsize(self, ctx:GDLParser.VertexsizeContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by GDLParser#vertexclr.
     def visitVertexclr(self, ctx:GDLParser.VertexclrContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GDLParser#edgeclr.
-    def visitEdgeclr(self, ctx:GDLParser.EdgeclrContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GDLParser#fontclr.
-    def visitFontclr(self, ctx:GDLParser.FontclrContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GDLParser#placement.
-    def visitPlacement(self, ctx:GDLParser.PlacementContext):
         return self.visitChildren(ctx)
 
 
@@ -114,18 +119,13 @@ class GDLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GDLParser#fontsize.
-    def visitFontsize(self, ctx:GDLParser.FontsizeContext):
+    # Visit a parse tree produced by GDLParser#edgeclr.
+    def visitEdgeclr(self, ctx:GDLParser.EdgeclrContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GDLParser#vertexsize.
-    def visitVertexsize(self, ctx:GDLParser.VertexsizeContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GDLParser#font.
-    def visitFont(self, ctx:GDLParser.FontContext):
+    # Visit a parse tree produced by GDLParser#placement.
+    def visitPlacement(self, ctx:GDLParser.PlacementContext):
         return self.visitChildren(ctx)
 
 

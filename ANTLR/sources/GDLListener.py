@@ -62,6 +62,33 @@ class GDLListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GDLParser#fontclr.
+    def enterFontclr(self, ctx:GDLParser.FontclrContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#fontclr.
+    def exitFontclr(self, ctx:GDLParser.FontclrContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#font.
+    def enterFont(self, ctx:GDLParser.FontContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#font.
+    def exitFont(self, ctx:GDLParser.FontContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#fontsize.
+    def enterFontsize(self, ctx:GDLParser.FontsizeContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#fontsize.
+    def exitFontsize(self, ctx:GDLParser.FontsizeContext):
+        pass
+
+
     # Enter a parse tree produced by GDLParser#content.
     def enterContent(self, ctx:GDLParser.ContentContext):
         pass
@@ -152,39 +179,21 @@ class GDLListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GDLParser#vertexsize.
+    def enterVertexsize(self, ctx:GDLParser.VertexsizeContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#vertexsize.
+    def exitVertexsize(self, ctx:GDLParser.VertexsizeContext):
+        pass
+
+
     # Enter a parse tree produced by GDLParser#vertexclr.
     def enterVertexclr(self, ctx:GDLParser.VertexclrContext):
         pass
 
     # Exit a parse tree produced by GDLParser#vertexclr.
     def exitVertexclr(self, ctx:GDLParser.VertexclrContext):
-        pass
-
-
-    # Enter a parse tree produced by GDLParser#edgeclr.
-    def enterEdgeclr(self, ctx:GDLParser.EdgeclrContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#edgeclr.
-    def exitEdgeclr(self, ctx:GDLParser.EdgeclrContext):
-        pass
-
-
-    # Enter a parse tree produced by GDLParser#fontclr.
-    def enterFontclr(self, ctx:GDLParser.FontclrContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#fontclr.
-    def exitFontclr(self, ctx:GDLParser.FontclrContext):
-        pass
-
-
-    # Enter a parse tree produced by GDLParser#placement.
-    def enterPlacement(self, ctx:GDLParser.PlacementContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#placement.
-    def exitPlacement(self, ctx:GDLParser.PlacementContext):
         pass
 
 
@@ -197,30 +206,21 @@ class GDLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GDLParser#fontsize.
-    def enterFontsize(self, ctx:GDLParser.FontsizeContext):
+    # Enter a parse tree produced by GDLParser#edgeclr.
+    def enterEdgeclr(self, ctx:GDLParser.EdgeclrContext):
         pass
 
-    # Exit a parse tree produced by GDLParser#fontsize.
-    def exitFontsize(self, ctx:GDLParser.FontsizeContext):
-        pass
-
-
-    # Enter a parse tree produced by GDLParser#vertexsize.
-    def enterVertexsize(self, ctx:GDLParser.VertexsizeContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#vertexsize.
-    def exitVertexsize(self, ctx:GDLParser.VertexsizeContext):
+    # Exit a parse tree produced by GDLParser#edgeclr.
+    def exitEdgeclr(self, ctx:GDLParser.EdgeclrContext):
         pass
 
 
-    # Enter a parse tree produced by GDLParser#font.
-    def enterFont(self, ctx:GDLParser.FontContext):
+    # Enter a parse tree produced by GDLParser#placement.
+    def enterPlacement(self, ctx:GDLParser.PlacementContext):
         pass
 
-    # Exit a parse tree produced by GDLParser#font.
-    def exitFont(self, ctx:GDLParser.FontContext):
+    # Exit a parse tree produced by GDLParser#placement.
+    def exitPlacement(self, ctx:GDLParser.PlacementContext):
         pass
 
 
