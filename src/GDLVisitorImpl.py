@@ -1,7 +1,7 @@
 from collections import namedtuple
 
-from GDLParser import GDLParser
-from GDLVisitor import GDLVisitor
+from ANTLR.sources.GDLParser import GDLParser
+from ANTLR.sources.GDLVisitor import GDLVisitor
 import dto
 
 
@@ -25,7 +25,6 @@ class GDLVisitorImpl(GDLVisitor):
 
         default_graph_options = dto.Graph()
 
-        edges = vertices = None
         isOriented = default_graph_options.is_oriented
         edges, vertices = self.visit(ctx.content())
 
