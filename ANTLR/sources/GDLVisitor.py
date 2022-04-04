@@ -99,11 +99,6 @@ class GDLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GDLParser#clr.
-    def visitClr(self, ctx:GDLParser.ClrContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by GDLParser#vertexsize.
     def visitVertexsize(self, ctx:GDLParser.VertexsizeContext):
         return self.visitChildren(ctx)
@@ -126,6 +121,11 @@ class GDLVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by GDLParser#placement.
     def visitPlacement(self, ctx:GDLParser.PlacementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GDLParser#clr.
+    def visitClr(self, ctx:GDLParser.ClrContext):
         return self.visitChildren(ctx)
 
 

@@ -170,15 +170,6 @@ class GDLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GDLParser#clr.
-    def enterClr(self, ctx:GDLParser.ClrContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#clr.
-    def exitClr(self, ctx:GDLParser.ClrContext):
-        pass
-
-
     # Enter a parse tree produced by GDLParser#vertexsize.
     def enterVertexsize(self, ctx:GDLParser.VertexsizeContext):
         pass
@@ -221,6 +212,15 @@ class GDLListener(ParseTreeListener):
 
     # Exit a parse tree produced by GDLParser#placement.
     def exitPlacement(self, ctx:GDLParser.PlacementContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#clr.
+    def enterClr(self, ctx:GDLParser.ClrContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#clr.
+    def exitClr(self, ctx:GDLParser.ClrContext):
         pass
 
 
