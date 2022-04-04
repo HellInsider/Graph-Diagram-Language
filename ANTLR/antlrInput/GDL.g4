@@ -33,20 +33,23 @@ vertexopt: '[' vertexoptparams+ ']';
 vertexoptparams: ( vertexclr | vertexsize ) (',')?;
 
 
-/*          Optional parameters         */
-//Graph
-clr:  ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan');
-
 
 //Vertex
 vertexsize: 'vertexSize' '=' INTEGER;
-vertexclr: 'vertexClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan');
+//vertexclr: 'vertexClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan');
+vertexclr: 'vertexClr' '=' clr;
 
 
 //Edge
 edgethickness: 'edgeThick' '=' INTEGER;
-edgeclr: 'edgeClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan' | 'LightGray');
+//edgeclr: 'edgeClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan' | 'LightGray');
+edgeclr: 'edgeClr' '=' clr;
 placement: 'place' '=' ('Left' | 'Right' | 'Up' | 'Down' | 'U-L' | 'U-R' | 'D-L' | 'D-R' | 'Center');
+
+
+/*          Optional parameters         */
+//Graph
+clr:  ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan' | 'LightGray');
 
 
 /*          Lexer part                  */
