@@ -27,7 +27,7 @@ edgeoptparams: ( placement | edgeclr | edgethickness) (',')?;
 
 /*            Vertex part               */
 vertex: TEXT ('(' value? ')')? vertexopt? ';'?;
-value: INTEGER | TEXT;                                                                              //change to symbols
+value: INTEGER | TEXT | EXTENDETTEXT;                                                                              //change to symbols
 attitude: ('->' | '<-' | '-');
 vertexopt: '[' vertexoptparams+ ']';
 vertexoptparams: ( vertexclr | vertexsize ) (',')?;
@@ -45,14 +45,14 @@ vertexclr: 'vertexClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Blac
 
 //Edge
 edgethickness: 'edgeThick' '=' INTEGER;
-edgeclr: 'edgeClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan');
+edgeclr: 'edgeClr' '=' ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink' | 'Cyan' | 'LightGray');
 placement: 'place' '=' ('Left' | 'Right' | 'Up' | 'Down' | 'U-L' | 'U-R' | 'D-L' | 'D-R' | 'Center');
 
 
 /*          Lexer part                  */
 INTEGER: ('0'..'9')+;
 TEXT: ( ('a'..'z') | ('A'..'Z') | ('0'..'9') )+;
-EXTENDETTEXT: ( ('a'..'z') | ('A'..'Z') | ('0'..'9') | ( '\u0021'..'\u0027' ) | ( '*' | '+' | '.' | '/' ) | ('?' | '@') | ('\u005E'..'\u0060') | CYRILLIC)+;
+EXTENDETTEXT: ( ('a'..'z') | ('A'..'Z') | ('0'..'9') | ( '\u0021'..'\u0027' ) | ( '*' | '+' | '.' | '/' | '-' ) | ('?' | '@') | ('\u005E'..'\u0060') | CYRILLIC)+;
 
 
 //SERVICESEMBOLS: ( ( '\u0021'..'\u0027' ) | ( '\u002A'..'\u002F' ~',') | ('?' | '@') | ('\u005E'..'\u0060') )+;
