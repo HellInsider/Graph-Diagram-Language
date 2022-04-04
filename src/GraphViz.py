@@ -39,46 +39,35 @@ class GraphViz:
         self.add_edges_to_graph(G)
         self.add_additional_nodes_to_graph(G)
 
-        edges, colors = zip(*nx.get_edge_attributes(G, 'color').items())
-        edges, edge_sizes = zip(*nx.get_edge_attributes(G, 'edge_thickness').items())
-        nodes, node_sizes = zip(*nx.get_node_attributes(G, 'size').items())
-        nodes, node_colors = zip(*nx.get_node_attributes(G, 'color').items())
-
-        pos = graphviz_layout(
-            G,
-            prog=self.layout
-        )
-
-        fig, ax = plt.subplots()
-        nx.draw(G, edgelist=edges, nodelist=nodes, pos=pos, labels=self.label_dict, edgecolors='Black', edge_color=colors, with_labels=True,
-                arrowsize=20, node_size=node_sizes, width=edge_sizes, node_color=node_colors,
-                arrows=self.graph.is_oriented, font_color=self.font_color, font_size=self.font_size,
-                font_family=self.font)
-
+        edges, _ = zip(*nx.get_edge_attributes(G, 'edge_thickness').items())
+        nodes, _ = zip(*nx.get_node_attributes(G, 'color').items())
+        edge_colors = nx.get_edge_attributes(G, 'color')
+        node_colors = nx.get_node_attributes(G, 'color')
+        edge_sizes = nx.get_edge_attributes(G, 'edge_thickness')
+        node_sizes = nx.get_node_attributes(G, 'size')
         labels = nx.get_edge_attributes(G, 'weight')
         node_labels = nx.get_node_attributes(G, 'label')
 
-        nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color=self.font_color, font_size=self.font_size,
-                                     font_family=self.font)
-        nx.draw_networkx_labels(G, pos, labels=node_labels, font_color=self.font_color, font_size=self.font_size,
-                                font_family=self.font)
 
+        pos = nx.spring_layout(G)
 
+        # nx.draw(G, edgelist=edges, nodelist=nodes, pos=pos, labels=self.label_dict, edgecolors='Black', edge_color=colors, with_labels=True,
+        #         arrowsize=20, node_size=node_sizes, width=edge_sizes, node_color=node_colors,
+        #         arrows=self.graph.is_oriented, font_color=self.font_color, font_size=self.font_size,
+        #         font_family=self.font)
 
-        # shift = (0.1, 0)
-        # # p1 = pos['v1']
-        # # result = tuple(map(operator.add, pos['v1'], (1, 1)))
-        # # shifted_pos = {node: node_pos + (1, 1) for node, node_pos in pos.items()}
-        # shifted_pos = {node: tuple(map(operator.add, pos[node], shift)) for node, node_pos in pos.items()}
-        #
-        # # Just some text to print in addition to node ids
-        # labels = {}
-        # labels[1] = 'First Node'
-        # labels[2] = 'Second Node'
-        # labels[3] = 'Third Node'
-        # nx.draw_networkx_labels(G, shifted_pos, labels=labels, horizontalalignment="left")
+        # nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color=self.font_color, font_size=self.font_size,
+        #                              font_family=self.font)
+        # nx.draw_networkx_labels(G, pos, labels=node_labels, font_color=self.font_color, font_size=self.font_size,
+        #                         font_family=self.font)
 
-        I = InteractiveGraph(G)
+        I = InteractiveGraph(G, edgelist=edges, nodelist=nodes, pos=pos, labels=self.label_dict, edgecolors='Black',
+                             with_labels=True, node_labels=node_labels, edge_labels=labels,
+                             arrowsize=20, width=edge_sizes, node_size=node_sizes, node_color=node_colors,
+                             edge_color=edge_colors,
+                             arrows=self.graph.is_oriented, font_color=self.font_color, font_size=self.font_size,
+                             font_family=self.font)
+
         plt.show()
 
         # ax.set_facecolor(self.background)
