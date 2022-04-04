@@ -1,15 +1,13 @@
 Graph{ 
 title: currentGraph;
-layout: twopi;
+layout: sfdp;
 saveAs: png;
 background: White;
-3v(5) [fontClr = Red, vertexSize = 100, vertexClr = Red];
-v1(3) - v2(3) [vertexSize = 500, vertexClr = Gray] : [fontClr = Red, edgeThick = 3, edgeClr = Red, font = Arial, fontSize = 38, place = Left];
-v1(5) [vertexSize = 300, vertexClr = Red] - v4(3) [vertexSize = 300, vertexClr = Pink];
-v10(Noda) [fontClr = Red, font = Arial, vertexSize = 900, vertexClr = Pink];
-v1(3) [vertexSize = 200, vertexClr = Green] - v10(Noda);
-//v1(5) - 3v(5);
-
+3v(5) [vertexSize = 100, vertexClr = Red];
+v1(3) - v2(3) [vertexSize = 100, vertexClr = Gray] : [edgeThick = 5, edgeClr = Red];
+v1(5) [vertexSize = 300, vertexClr = Red] - v4(3) [vertexSize = 300, vertexClr = Pink] : [edgeThick = 7, edgeClr = Green];
+v10(Node) [vertexSize = 900, vertexClr = Pink];
+v1(3) [vertexSize = 500, vertexClr = Green] - v10(Noda);
 } 
 
 //first comment here

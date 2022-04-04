@@ -7,7 +7,7 @@ from ANTLR.sources.GDLParser import GDLParser
 from GraphViz import GraphViz
 
 if __name__ == "__main__":
-    data = FileStream('/Users/Danil_Ovechkin/PycharmProjects/Graph-Diagram-Language/ANTLR/samples/test8.txt', encoding='utf-8')
+    data = FileStream('/Users/Danil_Ovechkin/PycharmProjects/Graph-Diagram-Language/ANTLR/samples/dijkstra_step6.txt', encoding='utf-8')
     # lexer
     lexer = GDLLexer(data)
     stream = CommonTokenStream(lexer)

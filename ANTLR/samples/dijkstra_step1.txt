@@ -1,0 +1,20 @@
+Graph{
+title: dijkstra_step1;
+layout: circo;
+saveAs: png;
+font: arial;
+background: White;
+fontSize: 15;
+fontClr: Black;
+
+v1(s) -> v2(u) = 2;
+v1(s) -> v3(w) = 2;
+v2(u) -> v3(w) = 1;
+v2(u) -> v4(v) = 2;
+v3(w) -> v4(v) = 1;
+
+v1(s) [vertexSize = 500, vertexClr = White]
+v2(u) [vertexSize = 500, vertexClr = White]
+v3(w) [vertexSize = 500, vertexClr = White]
+v4(v) [vertexSize = 500, vertexClr = White]
+}
