@@ -24,16 +24,6 @@ class GDLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GDLParser#saveformat.
-    def visitSaveformat(self, ctx:GDLParser.SaveformatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GDLParser#graphtitle.
-    def visitGraphtitle(self, ctx:GDLParser.GraphtitleContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by GDLParser#background.
     def visitBackground(self, ctx:GDLParser.BackgroundContext):
         return self.visitChildren(ctx)
@@ -51,6 +41,11 @@ class GDLVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by GDLParser#fontsize.
     def visitFontsize(self, ctx:GDLParser.FontsizeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GDLParser#usevertexnames.
+    def visitUsevertexnames(self, ctx:GDLParser.UsevertexnamesContext):
         return self.visitChildren(ctx)
 
 

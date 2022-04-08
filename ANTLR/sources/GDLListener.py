@@ -35,24 +35,6 @@ class GDLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GDLParser#saveformat.
-    def enterSaveformat(self, ctx:GDLParser.SaveformatContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#saveformat.
-    def exitSaveformat(self, ctx:GDLParser.SaveformatContext):
-        pass
-
-
-    # Enter a parse tree produced by GDLParser#graphtitle.
-    def enterGraphtitle(self, ctx:GDLParser.GraphtitleContext):
-        pass
-
-    # Exit a parse tree produced by GDLParser#graphtitle.
-    def exitGraphtitle(self, ctx:GDLParser.GraphtitleContext):
-        pass
-
-
     # Enter a parse tree produced by GDLParser#background.
     def enterBackground(self, ctx:GDLParser.BackgroundContext):
         pass
@@ -86,6 +68,15 @@ class GDLListener(ParseTreeListener):
 
     # Exit a parse tree produced by GDLParser#fontsize.
     def exitFontsize(self, ctx:GDLParser.FontsizeContext):
+        pass
+
+
+    # Enter a parse tree produced by GDLParser#usevertexnames.
+    def enterUsevertexnames(self, ctx:GDLParser.UsevertexnamesContext):
+        pass
+
+    # Exit a parse tree produced by GDLParser#usevertexnames.
+    def exitUsevertexnames(self, ctx:GDLParser.UsevertexnamesContext):
         pass
 
 
