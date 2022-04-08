@@ -1,7 +1,7 @@
 from collections import namedtuple
 
-from ANTLR.sources.GDLParser import GDLParser
-from ANTLR.sources.GDLVisitor import GDLVisitor
+from GDLParser import GDLParser
+from GDLVisitor import GDLVisitor
 import dto
 
 
@@ -25,13 +25,15 @@ class GDLVisitorImpl(GDLVisitor):
 
         default_graph_options = dto.Graph()
 
+        edges = vertices = None
         isOriented = default_graph_options.is_oriented
         edges, vertices = self.visit(ctx.content())
 
         layout = default_graph_options.layout
         background = default_graph_options.background
-        graph_title = default_graph_options.graph_title
-        saveformat = default_graph_options.save_format
+        #graph_title = default_graph_options.graph_title
+        #saveformat = default_graph_options.save_format
+        use_vertex_names = default_graph_options.use_vertex_names
         font = default_graph_options.font
         font_color = default_graph_options.font_color
         font_size = default_graph_options.font_size
@@ -42,11 +44,14 @@ class GDLVisitorImpl(GDLVisitor):
         for t in ctx.background():
             background = self.visit(t)
 
-        for t in ctx.graphtitle():
+        '''for t in ctx.graphtitle():
             graph_title = self.visit(t)
 
         for t in ctx.saveformat():
             saveformat = self.visit(t)
+            '''
+        for t in ctx.usevertexnames():
+            use_vertex_names = self.visit(t)
 
         for t in ctx.font():
             font = self.visit(t)
@@ -57,8 +62,9 @@ class GDLVisitorImpl(GDLVisitor):
         for t in ctx.fontsize():
             font_size = self.visit(t)
 
-        graph = dto.Graph(edges, vertices, self.isOriented, layout, graph_title, saveformat,
-                          background, font, font_color, font_size)
+        #graph = dto.Graph(edges, vertices, self.isOriented, layout, graph_title, saveformat,
+         #                 background, font, font_color, font_size)
+        graph = dto.Graph(edges, vertices, self.isOriented, layout, use_vertex_names, background, font, font_color, font_size)
         return graph
 
     # Visit a parse tree produced by GDLParser#layout.
@@ -66,15 +72,24 @@ class GDLVisitorImpl(GDLVisitor):
         print('Layout')
         return ctx.getChild(2).getText()
 
+    def visitUsevertexnames(self, ctx:GDLParser.UsevertexnamesContext):
+        print('UseVertexNames')
+        val = ctx.getChild(2).getText()
+        if val.lower() == 'true':
+            return True
+
+        return False
+
+
     # Visit a parse tree produced by GDLParser#saveformat.
-    def visitSaveformat(self, ctx: GDLParser.SaveformatContext):
-        print('SaveFormat')
-        return ctx.getChild(2).getText()
+    #def visitSaveformat(self, ctx: GDLParser.SaveformatContext):
+    #    print('SaveFormat')
+    #    return ctx.getChild(2).getText()
 
     # Visit a parse tree produced by GDLParser#graphtitle.
-    def visitGraphtitle(self, ctx: GDLParser.GraphtitleContext):
-        print('GraphTitle')
-        return ctx.getChild(2).getText()
+    #def visitGraphtitle(self, ctx: GDLParser.GraphtitleContext):
+     #   print('GraphTitle')
+      #  return ctx.getChild(2).getText()
 
     def visitBackground(self, ctx: GDLParser.BackgroundContext):
         print('Background')
