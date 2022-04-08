@@ -29,8 +29,9 @@ class Graph(NamedTuple):
     is_oriented: bool = False
     layout: str = "twopi"               # change it
 
-    graph_title: str = "title"
-    save_format: str = "jpg"
+    #graph_title: str = "title"
+    #save_format: str = "jpg"
+    use_vertex_names: bool = False
 
     background: str = "White"
     font: str = "Arial"
