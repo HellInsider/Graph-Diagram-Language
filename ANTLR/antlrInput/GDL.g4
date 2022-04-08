@@ -3,24 +3,25 @@ grammar GDL;
 program: graph+ EOF;
 
 graph: 'Graph' '{'
-           (graphtitle | layout | background | saveformat | fontclr | fontsize | font )*
+           ( layout | background |  fontclr | fontsize | font | usevertexnames /* saveformat | graphtitle*/)*
            content
         '}';
 
 
 /*        Graph general parameters      */
 layout: 'layout' ':' ('dot' | 'neato' | 'twopi' | 'circo' | 'fdp' | 'sfdp')  ';';
-saveformat: 'saveAs' ':' ('png' | 'jpg')  ';';
-graphtitle: 'title' ':' (TEXT | EXTENDETTEXT) ';';                                                  //change to symbols
+//saveformat: 'saveAs' ':' ('png' | 'jpg')  ';';
+//graphtitle: 'title' ':' (TEXT | EXTENDETTEXT) ';';                                                  //change to symbols
 background: 'background' ':' clr ';';
 fontclr: 'fontClr' ':' clr ';';
 font: 'font' ':' TEXT ';';
 fontsize: 'fontSize' ':' INTEGER ';';
+usevertexnames: 'usevertexnames' ':' BOOL ';';
 
 
 /*            Content part    	        */
-content: (edge | vertex)+;
-edge: vertex attitude vertex ( (':' edgeopt)? ('=' value)? | ('=' value)? (':' edgeopt)? ) ';';
+content: ( (edge ';') | (vertex ';') )+;
+edge: vertex attitude vertex ( (':' edgeopt)? ('=' value)? | ('=' value)? (':' edgeopt)? );
 edgeopt: '[' edgeoptparams+ ']';
 edgeoptparams: ( placement | edgeclr | edgethickness) (',')?;
 
@@ -53,12 +54,12 @@ clr:  ('Red' | 'Green' | 'Blue' | 'Gray' | 'Yellow' | 'Black' | 'White' | 'Pink'
 
 
 /*          Lexer part                  */
+BOOL: ('True' | 'False');
 INTEGER: ('0'..'9')+;
 TEXT: ( ('a'..'z') | ('A'..'Z') | ('0'..'9') )+;
 EXTENDETTEXT: ( ('a'..'z') | ('A'..'Z') | ('0'..'9') | ( '\u0021'..'\u0027' ) | ( '*' | '+' | '.' | '/' | '-' ) | ('?' | '@') | ('\u005E'..'\u0060') | CYRILLIC)+;
 
 
-//SERVICESEMBOLS: ( ( '\u0021'..'\u0027' ) | ( '\u002A'..'\u002F' ~',') | ('?' | '@') | ('\u005E'..'\u0060') )+;
 CYRILLIC: (('а' .. 'я') | ('А' .. 'Я') )+;
 SPACE: [ \t\r\n] -> skip;
 
