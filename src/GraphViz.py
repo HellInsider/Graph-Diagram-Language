@@ -1,9 +1,6 @@
-import matplotlib
-
 from dto import Graph
 import networkx as nx
 import matplotlib.pyplot as plt
-from networkx.drawing.nx_agraph import graphviz_layout
 from netgraph import InteractiveGraph
 
 
@@ -17,8 +14,6 @@ class GraphViz:
 
     def __init__(self, graph: Graph):
         self.index = 0
-        self.title = graph.graph_title
-        self.save_format = graph.save_format
         self.layout = graph.layout
         self.background = graph.background
         self.edges = graph.edges
@@ -27,6 +22,7 @@ class GraphViz:
         self.font_size = graph.font_size
         self.font_color = graph.font_color
         self.graph = graph
+        self.use_vertex_names = graph.use_vertex_names
         self.label_dict = {}
 
     def draw_in_file(self):
@@ -50,30 +46,15 @@ class GraphViz:
 
 
         pos = nx.spring_layout(G)
-
-        # nx.draw(G, edgelist=edges, nodelist=nodes, pos=pos, labels=self.label_dict, edgecolors='Black', edge_color=colors, with_labels=True,
-        #         arrowsize=20, node_size=node_sizes, width=edge_sizes, node_color=node_colors,
-        #         arrows=self.graph.is_oriented, font_color=self.font_color, font_size=self.font_size,
-        #         font_family=self.font)
-
-        # nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color=self.font_color, font_size=self.font_size,
-        #                              font_family=self.font)
-        # nx.draw_networkx_labels(G, pos, labels=node_labels, font_color=self.font_color, font_size=self.font_size,
-        #                         font_family=self.font)
-
         I = InteractiveGraph(G, edgelist=edges, nodelist=nodes, pos=pos, labels=self.label_dict, edgecolors='Black',
                              with_labels=True, node_labels=node_labels, edge_labels=labels,
-                             arrowsize=20, width=edge_sizes, node_size=node_sizes, node_color=node_colors,
+                             arrowsize=20, edge_width=edge_sizes, node_size=node_sizes, node_color=node_colors,
                              edge_color=edge_colors,
                              arrows=self.graph.is_oriented, font_color=self.font_color, font_size=self.font_size,
-                             font_family=self.font)
-
+                             font_family=self.font, node_label_fontdict=dict(size=int(self.font_size), fontfamily=self.font),
+                             edge_label_fontdict=dict(size=int(self.font_size), fontfamily=self.font))
+        plt.gca().set_facecolor(self.background)
         plt.show()
-
-        # ax.set_facecolor(self.background)
-        # ax.axis('off')
-        # fig.set_facecolor(self.background)
-        # plt.savefig(self.title + "." + self.save_format)
 
     def add_edges_to_graph(self, graph: nx.Graph):
         for edge in self.edges:
@@ -84,7 +65,12 @@ class GraphViz:
 
             edge_opt = edge.edge_options
 
-            graph.add_edge(v1.id, v2.id, weight=edge.label,
+            if edge.label == "":
+                weight = None
+            else:
+                weight = edge.label
+
+            graph.add_edge(v1.id, v2.id, weight=weight,
                            color=edge_opt.edge_color, edge_thickness=edge_opt.edge_thickness,
                            text_place=edge_opt.text_place)
             fill_vertex_params(graph, v1)
